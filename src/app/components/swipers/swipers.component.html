@@ -1,0 +1,13 @@
+<swiper-container
+  #swiperContainer
+  class="swiper-container"
+  (swiperslidechange)="onSlideChange($event)"
+  init="false"
+>
+  <swiper-slide *ngFor="let resource of resourceList" class="swiper-slide">
+    <div *ngIf="resource?.type === 'TEXTO'">{{ resource?.data }}</div>
+    <div *ngIf="resource?.type === 'VIDEO'">
+      <app-video-player [src]="resource?.data" />
+    </div>
+  </swiper-slide>
+</swiper-container>
